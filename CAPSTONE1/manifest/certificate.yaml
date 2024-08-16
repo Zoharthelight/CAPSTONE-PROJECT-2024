@@ -1,0 +1,16 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: zohar-certificate
+  namespace: sock-shop
+spec:
+  secretName: zohar-certificate-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: zohar-certificate.com
+  dnsNames: 
+  - a524fccfc16504e7cbaba5b865a5968b-1736507176.us-east-1.elb.amazonaws.com
+  # Optional: specify the duration of the certificate
+  duration: 2160h
+  renewBefore: 720h
